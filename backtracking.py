@@ -1,12 +1,13 @@
+
 def isValidCell(i, j, n):
     global board
     # checking row
-    for t in range(1, 10):
+    for t in range(0, 9):
         if board[i][t] == n:
             return False
 
     # checking column
-    for t in range(1, 10):
+    for t in range(0, 9):
         if board[t][j] == n:
             return False
 
@@ -17,3 +18,6 @@ def isValidCell(i, j, n):
                 return False
 
     return True
+
+
+print(isValidCell(1, 1, 9))
