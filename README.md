@@ -6,10 +6,10 @@ The program uses both backtracking and crooks algorithm in order to find a solut
 * Run backtracking on the ramaining board until solution. 
 
 
-**Backtracking algorithm:
+*Backtracking algorithm*:
 * For each cell, assign value from 0 to 9, and check if thier a solution in the new board.
 
-**Crooks algorithm:
+*Crooks algorithm*:
 * Find all valid values for each empty cell.
 * Fill all the cells which are singletons.
 * Find preemptive sets, and make reduction for the valid values of cells.
