@@ -1,6 +1,8 @@
 from backtracking import *
 from board import *
 
+'''Function that finds all the values that can be put in cell (i,j)'''
+
 
 def findAllValidNumbersForCell(i, j):
     listValids = []
@@ -8,6 +10,9 @@ def findAllValidNumbersForCell(i, j):
         if isValidCell(i, j, n):
             listValids.append(n)
     return listValids
+
+
+'''Function that finds all the values that can be put in each cell on board'''
 
 
 def findAllValidNumbersForEachCellOnBoard():

@@ -1,5 +1,7 @@
 from board import *
 
+''' Function for checking if a value n is valid for the cell in position (i,j)'''
+
 
 def isValidCell(i, j, n):
     global board
@@ -24,12 +26,18 @@ def isValidCell(i, j, n):
     return True
 
 
+''' Function for checking if all cells on a board are not empty'''
+
+
 def isBoardComplete(board):
     for i in range(0, 9):
         for j in range(0, 9):
             if board[i][j] == 0:
                 return False
     return True
+
+
+'''The main function'''
 
 
 def backtrackingSol(board):
