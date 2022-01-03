@@ -41,10 +41,8 @@ def findSingletonsInRows(optional, solution_):
                           if key[0] == i and len(value) > 0]
         # Remove duplicates
         uniqueValues = [x for y in optionalValues for x in y]
-        unique = [
-            x for x in uniqueValues if uniqueValues.count(x) == 1]
-        if len(unique) > 0:
-            for x in unique:
+        if len(uniqueValues) > 0:
+            for x in uniqueValues:
                 for key, value in {key: value for key, value in optional.items() if
                                    key[0] == i and len(value) > 0}.items():
                     if x in value:
