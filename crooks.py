@@ -29,9 +29,48 @@ def calculatePreemptiveSet():
     return
 
 
+def findSingletonsInRows(optional, solution_):
+    for i in range(0, 9):
+        row = solution_[i]
+        for j in range(0, 9):
+            # Find the missing values in a row, that can be put in each cell
+            optional[i, j] = [
+                value for value in optional[i, j] if value not in row]
+        # Find all group of values that correspond to the row i
+        optionalValues = [value for key, value in optional.items()
+                          if key[0] == i and len(value) > 0]
+        # Remove duplicates
+        uniqueValues = [x for y in optionalValues for x in y]
+        unique = [
+            x for x in uniqueValues if uniqueValues.count(x) == 1]
+        if len(unique) > 0:
+            for x in unique:
+                for key, value in {key: value for key, value in optional.items() if
+                                   key[0] == i and len(value) > 0}.items():
+                    if x in value:
+                        solution_[key[0] - 1][key[1] - 1] = x
+                        optional[key] = []
+    return 0
+
+
+def findSingletonsInColumns(optional, solution_):
+    for j in range(0, 9):
+        row = [x[j] for x in solution_]
+        for i in range(0, 9):
+            optional[i, j] = [
+                x for x in optional[i, j] if x not in row]
+
+       # continue
+    return 0
+
+
+def findSingletonsInSquars(optional, solution_):
+    return 0
+
+
 def crooks():
-    possible_values = findAllValidNumbersForEachCellOnBoard()
-    print(possible_values)
+    optional = findAllValidNumbersForEachCellOnBoard()
+    print(optional)
 
 
 crooks()
