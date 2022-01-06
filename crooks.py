@@ -2,10 +2,10 @@ from backtracking import *
 from board import *
 
 
-def findAllValidNumbersForCell(i, j):
+def findAllValidNumbersForCell(board, i, j):
     listValids = []
     for n in range(1, 10):
-        if isValidCell(i, j, n):
+        if isValidCell(board, i, j, n):
             listValids.append(n)
     return listValids
 
@@ -18,8 +18,8 @@ def findAllValidNumbersForEachCellOnBoard(board):
     for i in range(0, 9):
         for j in range(0, 9):
             if board[i][j] == 0:
-                print(findAllValidNumbersForCell(i, j))
-                allValidNumbers[i][j] = findAllValidNumbersForCell(i, j)
+                print(findAllValidNumbersForCell(board, i, j))
+                allValidNumbers[i][j] = findAllValidNumbersForCell(board, i, j)
             else:
                 allValidNumbers[i][j] = []
     return allValidNumbers
@@ -29,46 +29,58 @@ def calculatePreemptiveSet():
     return
 
 
-def findSingletonsInRows(optional, solution_):
+def findSingletonsInRows(candidates, solution_):
     for i in range(0, 9):
         row = solution_[i]
         for j in range(0, 9):
             # Find the missing values in a row, that can be put in each cell
-            optional[i, j] = [
-                value for value in optional[i, j] if value not in row]
+            candidates[i, j] = [
+                value for value in candidates[i, j] if value not in row]
         # Find all group of values that correspond to the row i
-        optionalValues = [value for key, value in optional.items()
+        optionalValues = [value for key, value in candidates.items()
                           if key[0] == i and len(value) > 0]
         # Remove duplicates
         uniqueValues = [x for y in optionalValues for x in y]
         if len(uniqueValues) > 0:
             for x in uniqueValues:
-                for key, value in {key: value for key, value in optional.items() if
+                for key, value in {key: value for key, value in candidates.items() if
                                    key[0] == i and len(value) > 0}.items():
                     if x in value:
                         solution_[key[0] - 1][key[1] - 1] = x
-                        optional[key] = []
+                        candidates[key] = []
     return 0
 
 
-def findSingletonsInColumns(optional, solution_):
+def findSingletonsInColumns(candidates, solution_):
     for j in range(0, 9):
-        row = [x[j] for x in solution_]
+        column = [x[j] for x in solution_]
         for i in range(0, 9):
-            optional[i, j] = [
-                x for x in optional[i, j] if x not in row]
-
-       # continue
+            # Find the missing values in a column, that can be put in each cell
+            candidates[i, j] = [
+                value for value in candidates[i, j] if value not in column]
+        # Find all group of values that correspond to the row i
+        optionalValues = [value for key, value in candidates.items()
+                          if key[1] == j and len(value) > 0]
+        # Remove duplicates
+        uniqueValues = [x for y in optionalValues for x in y]
+        if len(uniqueValues) > 0:
+            for x in uniqueValues:
+                for key, value in {key: value for key, value in candidates.items() if
+                                   key[1] == j and len(value) > 0}.items():
+                    if x in value:
+                        solution_[key[0] - 1][key[1] - 1] = x
+                        candidates[key] = []
+           # continue
     return 0
 
 
-def findSingletonsInSquars(optional, solution_):
+def findSingletonsInSquars(candidates, solution_):
     return 0
 
 
 def crooks(board):
-    optional = findAllValidNumbersForEachCellOnBoard(board)
-    print(optional)
+    candidates = findAllValidNumbersForEachCellOnBoard(board)
+    print(candidates)
 
 
 # crooks()

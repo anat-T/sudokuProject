@@ -10,12 +10,12 @@ class Board:
         [1, 2, 6, 5, 8, 7, 4, 9, 3],
         [3, 4, 9, 2, 1, 6, 8, 5, 7]
     ]
-    optional_values = [[]]
+    candidates = [[]]
     dimension = 9
 
-    def __init__(self, board, optional_values, dimension):
+    def __init__(self, board, candidates, dimension):
         self.board = board
-        self.optional_values = optional_values
+        self.candidates = candidates
         self.dimension = dimension
 
 

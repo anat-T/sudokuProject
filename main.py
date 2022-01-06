@@ -17,9 +17,11 @@ def main():
         [3, 4, 9, 2, 1, 6, 8, 5, 7]
     ], [[]], 9)
     #     start_time = time.time()
-    solution = backtrackingSol(sudoku.board)
-    print(solution)
+    # solution = backtrackingSol(sudoku.board)
+    # print(solution)
 #     print("--- %s seconds ---" % (time.time() - start_time))
+    row = crooks(sudoku.board)
+    print(row)
 
 
 main()
