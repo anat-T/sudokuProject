@@ -10,7 +10,7 @@ def findAllValidNumbersForCell(i, j):
     return listValids
 
 
-def findAllValidNumbersForEachCellOnBoard():
+def findAllValidNumbersForEachCellOnBoard(board):
     allValidNumbers = {}
     for i in range(0, 9):
         for j in range(0, 9):
@@ -66,9 +66,9 @@ def findSingletonsInSquars(optional, solution_):
     return 0
 
 
-def crooks():
-    optional = findAllValidNumbersForEachCellOnBoard()
+def crooks(board):
+    optional = findAllValidNumbersForEachCellOnBoard(board)
     print(optional)
 
 
-crooks()
+# crooks()

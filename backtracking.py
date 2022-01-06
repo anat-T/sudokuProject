@@ -1,8 +1,7 @@
 from board import *
 
 
-def isValidCell(i, j, n):
-    global board
+def isValidCell(board, i, j, n):
     # checking row
     for t in range(0, 9):
         if board[i][t] == n:
@@ -39,7 +38,7 @@ def backtrackingSol(board):
             for j in range(0, 9):
                 if board[i][j] == 0:
                     for n in range(1, 10):
-                        if isValidCell(i, j, n):
+                        if isValidCell(board, i, j, n):
                             board[i][j] = n
                             oldBoard = board
                             backtrackingSol(board)
