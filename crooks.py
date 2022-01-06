@@ -58,7 +58,7 @@ def findSingletonsInColumns(candidates, solution_):
             # Find the missing values in a column, that can be put in each cell
             candidates[i, j] = [
                 value for value in candidates[i, j] if value not in column]
-        # Find all group of values that correspond to the row i
+        # Find all group of values that correspond to the column j
         optionalValues = [value for key, value in candidates.items()
                           if key[1] == j and len(value) > 0]
         # Remove duplicates
@@ -75,6 +75,7 @@ def findSingletonsInColumns(candidates, solution_):
 
 
 def findSingletonsInSquars(candidates, solution_):
+    # do steps of 3
     return 0
 
 

@@ -15,7 +15,7 @@ def main():
         [5, 7, 8, 3, 0, 4, 6, 1, 2],
         [1, 2, 6, 5, 8, 7, 4, 9, 3],
         [3, 4, 9, 2, 1, 6, 8, 5, 7]
-    ], [[]], 9)
+    ], [[]], 9, 1)
     #     start_time = time.time()
     # solution = backtrackingSol(sudoku.board)
     # print(solution)

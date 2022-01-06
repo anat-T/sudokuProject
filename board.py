@@ -12,11 +12,13 @@ class Board:
     ]
     candidates = [[]]
     dimension = 9
+    difficulty = 1
 
-    def __init__(self, board, candidates, dimension):
+    def __init__(self, board, candidates, dimension, difficulty):
         self.board = board
         self.candidates = candidates
         self.dimension = dimension
+        self.difficulty = difficulty
 
 
 # board = [
@@ -32,7 +34,7 @@ class Board:
 # ]
 
 
-# board = [
+# easy_board = [
 #     [0, 8, 5, 4, 3, 9, 1, 2, 6],
 #     [6, 1, 2, 8, 7, 5, 3, 4, 9],
 #     [4, 9, 3, 6, 2, 1, 0, 7, 8],
