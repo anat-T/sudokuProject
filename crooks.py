@@ -14,14 +14,15 @@ def findAllValidNumbersForEachCellOnBoard(board):
     allValidNumbers = {}
     for i in range(0, 9):
         for j in range(0, 9):
-            allValidNumbers[i, j] = list(range(0, 9))
+            allValidNumbers[i, j] = list(range(1, 10))
     for i in range(0, 9):
         for j in range(0, 9):
             if board[i][j] == 0:
-                print(findAllValidNumbersForCell(board, i, j))
-                allValidNumbers[i][j] = findAllValidNumbersForCell(board, i, j)
+                print("1:", findAllValidNumbersForCell(board, i, j))
+                print("2:", allValidNumbers[i, j])
+                allValidNumbers[i, j] = findAllValidNumbersForCell(board, i, j)
             else:
-                allValidNumbers[i][j] = []
+                allValidNumbers[i, j] = []
     return allValidNumbers
 
 
@@ -79,9 +80,8 @@ def findSingletonsInSquars(candidates, solution_):
     return 0
 
 
-def crooks(board):
-    candidates = findAllValidNumbersForEachCellOnBoard(board)
-    print(candidates)
+def crooks(sudoku):
+    sudoku.candidates = findAllValidNumbersForEachCellOnBoard(sudoku.board)
 
 
 # crooks()

@@ -20,8 +20,8 @@ def main():
     # solution = backtrackingSol(sudoku.board)
     # print(solution)
 #     print("--- %s seconds ---" % (time.time() - start_time))
-    row = crooks(sudoku.board)
-    print(row)
+    crooks(sudoku)
+    print(sudoku.candidates)
 
 
 main()
